@@ -1,0 +1,26 @@
+{
+  "name": "pbl6-api-gateway-service",
+  "version": "1.0.0",
+  "description": "API Gateway for PBL6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hieu02122001/PBL6-api-gateway-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hieu02122001/PBL6-api-gateway-service/issues"
+  },
+  "homepage": "https://github.com/hieu02122001/PBL6-api-gateway-service#readme",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
