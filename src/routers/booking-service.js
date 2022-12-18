@@ -23,7 +23,7 @@ router.get(PATH, async (req, res) => {
     if (error.response) {
       res.status(400).send(error.response.data);
     } else {
-      req.status(400).send(error);
+      res.status(400).send(error);
     }
   }
 });
@@ -38,12 +38,12 @@ router.post(PATH, async (req, res) => {
         'authorization': req.headers.authorization
       }
     });
-    res.status(response.status).send(response.data);
+    res.status(response.status).send({ response: response.data });
   } catch (error) {
     if (error.response) {
       res.status(400).send(error.response.data);
     } else {
-      req.status(400).send(error);
+      res.status(400).send(error);
     }
   }
 });
@@ -58,12 +58,12 @@ router.put(PATH, async (req, res) => {
         'authorization': req.headers.authorization
       }
     });
-    res.status(response.status).send(response.data);
+    res.status(response.status).send({ response: response.data });
   } catch (error) {
     if (error.response) {
       res.status(400).send(error.response.data);
     } else {
-      req.status(400).send(error);
+      res.status(400).send(error);
     }
   }
 });
@@ -78,12 +78,12 @@ router.delete(PATH, async (req, res) => {
         'authorization': req.headers.authorization
       }
     });
-    res.status(response.status).send(response.data);
+    res.status(response.status).send({ response: response.data });
   } catch (error) {
     if (error.response) {
       res.status(400).send(error.response.data);
     } else {
-      req.status(400).send(error);
+      res.status(400).send(error);
     }
   }
 });
