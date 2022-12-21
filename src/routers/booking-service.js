@@ -1,6 +1,7 @@
 const axios = require('axios').default;
 const express = require('express');
 const router = new express.Router();
+const lodash = require('lodash');
 
 //
 // const USER_SERVICE_URL = "http://0.0.0.0:3000";
@@ -18,7 +19,11 @@ router.get(PATH, async (req, res) => {
         'authorization': req.headers.authorization
       }
     });
-    res.status(response.status).send(response.data);
+    if (lodash.isObject(response.data)) {
+      res.status(response.status).send(response.data);
+    } else {
+      res.status(response.status).send({response: response.data});
+    }
   } catch (error) {
     if (error.response) {
       res.status(400).send(error.response.data);
@@ -38,7 +43,11 @@ router.post(PATH, async (req, res) => {
         'authorization': req.headers.authorization
       }
     });
-    res.status(response.status).send({ response: response.data });
+    if (lodash.isObject(response.data)) {
+      res.status(response.status).send(response.data);
+    } else {
+      res.status(response.status).send({response: response.data});
+    }
   } catch (error) {
     if (error.response) {
       res.status(400).send(error.response.data);
@@ -58,7 +67,11 @@ router.put(PATH, async (req, res) => {
         'authorization': req.headers.authorization
       }
     });
-    res.status(response.status).send({ response: response.data });
+    if (lodash.isObject(response.data)) {
+      res.status(response.status).send(response.data);
+    } else {
+      res.status(response.status).send({response: response.data});
+    }
   } catch (error) {
     if (error.response) {
       res.status(400).send(error.response.data);
@@ -78,7 +91,11 @@ router.delete(PATH, async (req, res) => {
         'authorization': req.headers.authorization
       }
     });
-    res.status(response.status).send({ response: response.data });
+    if (lodash.isObject(response.data)) {
+      res.status(response.status).send(response.data);
+    } else {
+      res.status(response.status).send({response: response.data});
+    }
   } catch (error) {
     if (error.response) {
       res.status(400).send(error.response.data);
